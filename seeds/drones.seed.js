@@ -12,7 +12,7 @@ const drones = [
     { name: "Josh-800", propellers: 2, maxSpeed: 31 },
     { name: "Jaime v5", propellers: 4, maxSpeed: 32 },
     { name: "Lloyd-Ultra", propellers: 99, maxSpeed: 9000 },
-    { name: "Ironhack M1", propellers: 29 , maxSpeed: 9063 }
+    { name: "Ironhack M1", propellers: 29 , maxSpeed: Infinity }
     
   ];
 
