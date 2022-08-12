@@ -10,7 +10,7 @@ router.get('/drones', (req, res, next) => {
     .then((dronesArr) => {
       res.render("drones/list", {dronesArr})
     })
-    .catch((error) => console.log("Error getting data from DB", error))
+    .catch((error) => console.log("Error getting data", error))
 });
 
 router.get('/drones/create', (req, res, next) => {
@@ -30,7 +30,7 @@ router.post('/drones/create', (req, res, next) => {
   .then(() => {
     res.redirect("/drones")
   })
-  .catch((error) => console.log("Error creating new document", error))
+  .catch((error) => console.log("Error creating new drone", error))
 });
 
 router.get('/drones/:id/edit', (req, res, next) => {
@@ -39,7 +39,7 @@ router.get('/drones/:id/edit', (req, res, next) => {
   .then(droneToEdit => {
     res.render("drones/update-form", {droneToEdit})
   })
-  .catch((error) => console.log("Error getting drone data from db", error))
+  .catch((error) => console.log("Error getting drone from database", error))
 });
 
 router.post('/drones/:id/edit', (req, res, next) => {
@@ -52,14 +52,14 @@ router.post('/drones/:id/edit', (req, res, next) => {
   };
   Drone.findByIdAndUpdate(droneId, newDetails)
   .then(() => res.redirect("/drones"))
-  .catch((error) => console.log("Error editing drone data", error))
+  .catch((error) => console.log("Error editing drone", error))
 });
 
 router.post('/drones/:id/delete', (req, res, next) => {
   // Iteration #5: Delete the drone
   Drone.findByIdAndDelete(req.params.id)
   .then( () => {res.redirect("/drones")})
-  .catch((error) => console.log("Error deleting drone data", error))
+  .catch((error) => console.log("Error deleting drone", error))
 });
 
 module.exports = router;
